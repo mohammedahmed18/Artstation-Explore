@@ -10,7 +10,12 @@ const Artwork = ({ artwork }) => {
       />
       <p className="my-4 font-bold text-lg">{artwork.title}</p>
       <User user={artwork.user} />
-      <a href={artwork.url} target="_blank" className="btn btn-ghost mt-2">
+      <a
+        href={artwork.url}
+        target="_blank"
+        rel="noopener"
+        className="btn btn-ghost mt-2"
+      >
         view on artstation
       </a>
     </div>

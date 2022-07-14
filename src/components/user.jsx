@@ -9,6 +9,7 @@ const User = ({ user }) => {
       />
       <a
         target="_blank"
+        rel="noopener"
         href={`https://www.artstation.com/${user.username}`}
         class="ml-2 text-primary-content overflow-hidden"
       >
