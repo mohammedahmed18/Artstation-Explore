@@ -38,7 +38,6 @@ const ArtworkList = () => {
   } , [loading])
   useEffect(() => {
     if (prevTab && prevTab !== tab) {
-      alert("tab changed");
       // tab changed
       setArtworks([]);
       setPage(1);
