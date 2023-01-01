@@ -40,15 +40,17 @@ const ArtworkList = () => {
   useEffect(() => {
     if (prevTab) {
       // not first render
+      console.log("tab changed");
       setArtworks([]);
       setPage(1);
+      getArtworks()
     }
   }, [tab]);
 
   useEffect(() => {
+      console.log(`load more or initial ${tab} , page : ${page}`);
       getArtworks()
   } , [page])
-  
   return (
     <>
       <Tabs currentTab={tab} setTab={setTab} />
