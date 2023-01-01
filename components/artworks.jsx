@@ -28,7 +28,7 @@ const ArtworkList = () => {
     }
   };
 
-  const loadMore = async () => {
+  const loadMore = () => {
     setPage((prev) => prev + 1);
   };
 
@@ -36,22 +36,25 @@ const ArtworkList = () => {
     if(loading) NProgress.start()
     else NProgress.done()
   } , [loading])
+
   useEffect(() => {
-    if (prevTab && prevTab !== tab) {
-      // tab changed
+    if (prevTab) {
+      // not first render
       setArtworks([]);
       setPage(1);
-     return getArtworks();
-    } 
-    getArtworks();
-  }, [page, tab]);
+    }
+  }, [tab]);
 
+  useEffect(() => {
+      getArtworks()
+  } , [page])
+  
   return (
     <>
       <Tabs currentTab={tab} setTab={setTab} />
       <div className="grid grid-cols-1 mt-14 md:grid-cols-3 lg:grid-cols-4 gap-4 p-3">
-        {artworks.map((artwork) => (
-          <Artwork artwork={artwork} key={artwork.id} />
+        {artworks.map((artwork,i) => (
+          <Artwork artwork={artwork} key={i} />
         ))}
       </div>
 
