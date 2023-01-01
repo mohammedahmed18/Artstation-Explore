@@ -1,1 +1,1 @@
-export const PER_PAGE_ARTWORKS = 10
+export const PER_PAGE_ARTWORKS = 48
